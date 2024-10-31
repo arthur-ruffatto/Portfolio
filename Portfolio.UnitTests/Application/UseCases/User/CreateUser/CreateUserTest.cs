@@ -36,6 +36,21 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
             output.Bio.Should().Be(input.Bio);
         }
 
+        [Fact(DisplayName = nameof(CreateUser_Should_ThrowException_When_InvalidData))]
+        [Trait("Application", "Use Cases - User")]
+        public async void CreateUser_Should_ThrowException_When_InvalidData()
+        {
+            var repositoryMock = new Mock<IUserRepository>();
+            var useCase = new UseCase.CreateUser(repositoryMock.Object);
+            var input = CreateUserDTO();
+            input.FirstName = "";
+
+            Func<Task> task = async () =>  await useCase.ExecuteAsync(input);
+
+            await task.Should().ThrowAsync<ArgumentException>();
+            repositoryMock.Verify(repo => repo.AddAsync(It.IsAny<UserEntity.User>()), Times.Never);
+        }
+
         private CreateUserDTO CreateUserDTO() 
         {
             return new CreateUserDTO
@@ -46,5 +61,5 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
                 Bio = _faker.Lorem.Text()
             };
         }
-    }
+    }   
 }
