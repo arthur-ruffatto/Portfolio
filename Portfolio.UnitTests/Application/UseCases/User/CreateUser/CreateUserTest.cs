@@ -5,18 +5,13 @@ using Portfolio.Application.Interfaces;
 using UserEntity = Portfolio.Domain.Entities;
 using UseCase = Portfolio.Application.UseCases.User;
 using FluentAssertions;
+using Portfolio.UnitTests.Application.UseCases.Common;
 
 
 namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
 {
-    public class CreateUserTest
+    public class CreateUserTest : BaseUseCaseTest
     {
-        private readonly Faker _faker;
-
-        public CreateUserTest()
-        {
-            _faker = new Faker();
-        }
 
         [Fact(DisplayName = nameof(CreateUser_ShouldBeValid))]
         [Trait("Application", "Use Cases - User")]
@@ -55,10 +50,10 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
         {
             return new CreateUserDTO
             {
-                FirstName = _faker.Name.FirstName(),
-                LastName = _faker.Name.LastName(),
-                Email = _faker.Internet.Email(),
-                Bio = _faker.Lorem.Text()
+                FirstName = Faker.Name.FirstName(),
+                LastName = Faker.Name.LastName(),
+                Email = Faker.Internet.Email(),
+                Bio = Faker.Lorem.Text()
             };
         }
     }   
