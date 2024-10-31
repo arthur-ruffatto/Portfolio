@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Portfolio.Domain.Entities
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Link { get; set; } // Link to the project or GitHub
+        public ProjectLink Link { get; set; } // Link to the project or GitHub
         public DateTime CreatedAt { get; set; }
 
         public Guid UserId { get; set; }

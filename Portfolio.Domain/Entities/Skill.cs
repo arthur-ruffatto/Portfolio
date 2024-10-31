@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,7 @@ namespace Portfolio.Domain.Entities
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
-        //TODO: Create Enumerable for level
-        public string Level { get; set; } //Beginner, Intermediate, etc...
+        public SkillLevel Level { get; set; } //Beginner, Intermediate, etc...
 
         public Guid UserId { get; set; }
         public User User { get; set; }
