@@ -3,6 +3,7 @@ using UserEntity = Portfolio.Domain.Entities;
 using Portfolio.Domain.ValueObjects;
 using Portfolio.Application.DTOs.User;
 
+
 namespace Portfolio.Application.UseCases.User
 {
     public class CreateUser
@@ -14,7 +15,7 @@ namespace Portfolio.Application.UseCases.User
             _userRepository = userRepository;
         }
 
-        public async Task<CreateUserDTO> ExecuteAsync(CreateUserDTO createUserDTO)
+        public async Task<UserModelOutput> ExecuteAsync(CreateUserDTO createUserDTO)
         {
             var user = new UserEntity.User
             {
@@ -26,13 +27,7 @@ namespace Portfolio.Application.UseCases.User
 
             await _userRepository.AddAsync(user);
 
-            return new CreateUserDTO
-            {
-                FirstName = user.Name.FirstName,
-                LastName = user.Name.LastName,
-                Email = user.Email,
-                Bio = user.Bio
-            };
+            return UserModelOutput.FromUser(user);
         }
     }
 }
