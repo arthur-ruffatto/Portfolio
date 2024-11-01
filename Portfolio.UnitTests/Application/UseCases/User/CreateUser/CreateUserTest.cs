@@ -14,7 +14,7 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
     {
 
         [Fact(DisplayName = nameof(CreateUser_ShouldBeValid))]
-        [Trait("Application", "Use Cases - User")]
+        [Trait("Application", "Use Cases - Create User")]
         public async void CreateUser_ShouldBeValid()
         {
             var repositoryMock = new Mock<IUserRepository>();
@@ -32,7 +32,7 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
         }
 
         [Fact(DisplayName = nameof(CreateUser_Should_ThrowException_When_InvalidData))]
-        [Trait("Application", "Use Cases - User")]
+        [Trait("Application", "Use Cases - Create User")]
         public async void CreateUser_Should_ThrowException_When_InvalidData()
         {
             var repositoryMock = new Mock<IUserRepository>();

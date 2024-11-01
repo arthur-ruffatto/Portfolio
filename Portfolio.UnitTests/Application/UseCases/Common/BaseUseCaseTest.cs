@@ -1,9 +1,7 @@
 ﻿using Bogus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UserEntity = Portfolio.Domain.Entities;
+using Portfolio.Domain.ValueObjects;
+using System.Globalization;
 
 namespace Portfolio.UnitTests.Application.UseCases.Common
 {
@@ -12,5 +10,28 @@ namespace Portfolio.UnitTests.Application.UseCases.Common
         public Faker Faker {  get; set; }
 
         protected BaseUseCaseTest() => Faker = new Faker();
+
+        public UserEntity.User GetValidUser()
+        {
+            return new UserEntity.User
+            {
+                Id = Guid.NewGuid(),
+                Name = new FullName(GenerateFirstName(), GenerateLastName()),
+                Email = GenerateEmail(),
+                Bio = GenerateBio(),
+            };
+        }
+
+        private string GenerateFirstName()
+            => Faker.Name.FirstName();
+
+        private string GenerateLastName()
+            => Faker.Name.LastName();
+
+        private string GenerateEmail() 
+            => Faker.Internet.Email();
+
+        private string GenerateBio()
+            => Faker.Lorem.Text();
     }
 }
