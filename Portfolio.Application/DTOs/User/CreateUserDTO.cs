@@ -1,7 +1,9 @@
 ﻿
+using MediatR;
+
 namespace Portfolio.Application.DTOs.User
 {
-    public class CreateUserDTO
+    public class CreateUserDTO : IRequest<UserModelOutput>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
