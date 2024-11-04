@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Domain", "Portfolio.Domain\Portfolio.Domain.csproj", "{56D3007A-25AF-49F2-988D-10199CDE97A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Domain", "Portfolio.Domain\Portfolio.Domain.csproj", "{56D3007A-25AF-49F2-988D-10199CDE97A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Application", "Portfolio.Application\Portfolio.Application.csproj", "{7566BBA6-4D76-4014-9775-6D700A1E9100}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.Application", "Portfolio.Application\Portfolio.Application.csproj", "{7566BBA6-4D76-4014-9775-6D700A1E9100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.UnitTests", "Portfolio.UnitTests\Portfolio.UnitTests.csproj", "{5F2BA624-4F1A-447B-B8FD-5D0E5AF2EEF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio.UnitTests", "Portfolio.UnitTests\Portfolio.UnitTests.csproj", "{5F2BA624-4F1A-447B-B8FD-5D0E5AF2EEF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{24A60BB9-0D96-4DBA-BF96-5535DCFBD69A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CCF9D167-B9A4-4A2B-9167-347905A8C287}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56D3007A-25AF-49F2-988D-10199CDE97A8} = {24A60BB9-0D96-4DBA-BF96-5535DCFBD69A}
+		{7566BBA6-4D76-4014-9775-6D700A1E9100} = {24A60BB9-0D96-4DBA-BF96-5535DCFBD69A}
+		{5F2BA624-4F1A-447B-B8FD-5D0E5AF2EEF7} = {CCF9D167-B9A4-4A2B-9167-347905A8C287}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0CD5174-19DC-4E75-A27C-95101EC991F4}

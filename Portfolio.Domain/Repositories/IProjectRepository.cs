@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Portfolio.Application.Interfaces
+namespace Portfolio.Domain.Repositories
 {
     public interface IProjectRepository
     {

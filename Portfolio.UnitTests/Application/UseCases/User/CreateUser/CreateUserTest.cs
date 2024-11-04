@@ -1,12 +1,12 @@
 ﻿using Bogus;
 using Moq;
 using Portfolio.Application.DTOs.User;
-using Portfolio.Application.Interfaces;
 using UserEntity = Portfolio.Domain.Entities;
 using UseCase = Portfolio.Application.UseCases.User;
 using FluentAssertions;
 using Portfolio.UnitTests.Application.UseCases.Common;
 using Portfolio.Domain.Exceptions;
+using Portfolio.Domain.Repositories;
 
 
 namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser

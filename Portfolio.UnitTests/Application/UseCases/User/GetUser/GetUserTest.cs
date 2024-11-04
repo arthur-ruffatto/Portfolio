@@ -2,7 +2,7 @@
 using Moq;
 using Portfolio.Application.DTOs.User;
 using Portfolio.Application.Exceptions;
-using Portfolio.Application.Interfaces;
+using Portfolio.Domain.Repositories;
 using Portfolio.UnitTests.Application.UseCases.Common;
 using UseCase = Portfolio.Application.UseCases.User;
 using UserEntity = Portfolio.Domain.Entities;

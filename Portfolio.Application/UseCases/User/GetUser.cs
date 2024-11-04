@@ -1,5 +1,5 @@
 ﻿using Portfolio.Application.DTOs.User;
-using Portfolio.Application.Interfaces;
+using Portfolio.Domain.Repositories;
 
 namespace Portfolio.Application.UseCases.User
 {

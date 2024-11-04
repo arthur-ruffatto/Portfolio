@@ -1,7 +1,7 @@
-﻿using Portfolio.Application.Interfaces;
-using UserEntity = Portfolio.Domain.Entities;
+﻿using UserEntity = Portfolio.Domain.Entities;
 using Portfolio.Domain.ValueObjects;
 using Portfolio.Application.DTOs.User;
+using Portfolio.Domain.Repositories;
 
 
 namespace Portfolio.Application.UseCases.User
