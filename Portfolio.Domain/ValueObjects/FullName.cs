@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Domain.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Portfolio.Domain.ValueObjects
         public FullName(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException("First and last names cannot be empty");
+                throw new DomainException("First and last names cannot be empty");
 
             FirstName = firstName;
             LastName = lastName;

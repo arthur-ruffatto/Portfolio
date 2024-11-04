@@ -6,6 +6,7 @@ using UserEntity = Portfolio.Domain.Entities;
 using UseCase = Portfolio.Application.UseCases.User;
 using FluentAssertions;
 using Portfolio.UnitTests.Application.UseCases.Common;
+using Portfolio.Domain.Exceptions;
 
 
 namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
@@ -42,7 +43,7 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
 
             Func<Task> task = async () =>  await useCase.ExecuteAsync(input);
 
-            await task.Should().ThrowAsync<ArgumentException>();
+            await task.Should().ThrowAsync<DomainException>();
             repositoryMock.Verify(repo => repo.AddAsync(It.IsAny<UserEntity.User>()), Times.Never);
         }
 
