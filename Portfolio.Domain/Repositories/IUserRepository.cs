@@ -9,10 +9,10 @@ namespace Portfolio.Domain.Repositories
 {
     public interface IUserRepository
     {
-        Task<User> GetByIdAsync(Guid id);
-        Task<List<User>> GetAllAsync();
-        Task AddAsync(User user);
-        Task UpdateAsync(User user);
-        Task DeleteAsync(Guid userId);
+        Task<User> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+        Task<List<User>> GetAllAsync(CancellationToken cancellationToken);
+        Task AddAsync(User user, CancellationToken cancellationToken);
+        Task UpdateAsync(User user, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid userId, CancellationToken cancellationToken);
     }
 }

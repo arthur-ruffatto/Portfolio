@@ -25,7 +25,7 @@ namespace Portfolio.Application.UseCases.User
                 Bio = createUserDTO.Bio
             };
 
-            await _userRepository.AddAsync(user);
+            await _userRepository.AddAsync(user, cancellationToken);
 
             return UserModelOutput.FromUser(user);
         }

@@ -15,7 +15,7 @@ namespace Portfolio.Application.UseCases.User
 
         public async Task<UserModelOutput> Handle(GetUserDTO getUserDTO, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(getUserDTO.Id);
+            var user = await _userRepository.GetByIdAsync(getUserDTO.Id, cancellationToken);
             return UserModelOutput.FromUser(user);
         }
     }
