@@ -22,7 +22,7 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
             var useCase = new UseCase.CreateUser(repositoryMock.Object);
             var input = CreateUserDTO();
 
-            var output = await useCase.ExecuteAsync(input);
+            var output = await useCase.Handle(input, CancellationToken.None);
 
             repositoryMock.Verify(repository => repository.AddAsync(It.IsAny<UserEntity.User>()), Times.Once);
             output.Should().NotBeNull();
@@ -41,7 +41,7 @@ namespace Portfolio.UnitTests.Application.UseCases.User.CreateUser
             var input = CreateUserDTO();
             input.FirstName = "";
 
-            Func<Task> task = async () =>  await useCase.ExecuteAsync(input);
+            Func<Task> task = async () =>  await useCase.Handle(input, CancellationToken.None);
 
             await task.Should().ThrowAsync<DomainException>();
             repositoryMock.Verify(repo => repo.AddAsync(It.IsAny<UserEntity.User>()), Times.Never);

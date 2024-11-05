@@ -1,9 +1,10 @@
 ﻿using Portfolio.Application.DTOs.User;
+using Portfolio.Application.Interfaces.User;
 using Portfolio.Domain.Repositories;
 
 namespace Portfolio.Application.UseCases.User
 {
-    public class GetUser
+    public class GetUser : IGetUser
     {
         private readonly IUserRepository _userRepository;
 
@@ -12,7 +13,7 @@ namespace Portfolio.Application.UseCases.User
             _userRepository = userRepository;
         }
 
-        public async Task<UserModelOutput> ExecuteAsync(GetUserDTO getUserDTO)
+        public async Task<UserModelOutput> Handle(GetUserDTO getUserDTO, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(getUserDTO.Id);
             return UserModelOutput.FromUser(user);

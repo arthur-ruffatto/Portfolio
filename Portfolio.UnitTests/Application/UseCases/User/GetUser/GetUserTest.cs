@@ -21,7 +21,7 @@ namespace Portfolio.UnitTests.Application.UseCases.User.GetUser
             repositoryMock.Setup(x => x.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync(validUser);
             var input = GetUserDTO();
 
-            var output = await useCase.ExecuteAsync(input);
+            var output = await useCase.Handle(input, CancellationToken.None);
 
             repositoryMock.Verify(repository => repository.GetByIdAsync(It.IsAny<Guid>()), Times.Once);
             output.Should().NotBeNull();
@@ -41,7 +41,7 @@ namespace Portfolio.UnitTests.Application.UseCases.User.GetUser
             repositoryMock.Setup(x => x.GetByIdAsync(It.IsAny<Guid>()))
                 .ThrowsAsync(new NotFoundException($"User Id: {input.Id} not found"));
 
-            Func<Task> task = async () => await useCase.ExecuteAsync(input);
+            Func<Task> task = async () => await useCase.Handle(input, CancellationToken.None);
 
             await task.Should().ThrowAsync<NotFoundException>();
             repositoryMock.Verify(repo => repo.AddAsync(It.IsAny<UserEntity.User>()), Times.Never);

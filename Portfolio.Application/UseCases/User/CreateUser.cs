@@ -2,11 +2,11 @@
 using Portfolio.Domain.ValueObjects;
 using Portfolio.Application.DTOs.User;
 using Portfolio.Domain.Repositories;
-
+using Portfolio.Application.Interfaces.User;
 
 namespace Portfolio.Application.UseCases.User
 {
-    public class CreateUser
+    public class CreateUser : ICreateUser
     {
         private readonly IUserRepository _userRepository;
 
@@ -15,7 +15,7 @@ namespace Portfolio.Application.UseCases.User
             _userRepository = userRepository;
         }
 
-        public async Task<UserModelOutput> ExecuteAsync(CreateUserDTO createUserDTO)
+        public async Task<UserModelOutput> Handle(CreateUserDTO createUserDTO, CancellationToken cancellationToken)
         {
             var user = new UserEntity.User
             {
